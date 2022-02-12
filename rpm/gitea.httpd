@@ -1,0 +1,50 @@
+# ENSURE YOU SET YOUR ROOT_URL CORRECTLY AFTER MAKING CHANGES
+
+# Virtual Host Examples
+
+# <VirtualHost *:80>
+#   ServerName git.example.com
+#   ServerAlias git.example.com
+#   ProxyPreserveHost On
+#   ProxyRequests Off
+#   AllowEncodedSlashes NoDecode
+#   ProxyPass / http://localhost:3000/ nocanon
+#   ProxyPassReverse / http://localhost:3000/ nocanon
+# </VirtualHost>
+# 
+# <VirtualHost *:443>
+#   Protocols h2 http/1.1
+#   SSLEngine On
+#   ServerName git.example.com
+#   ServerAlias git.example.com
+#   ProxyPreserveHost On
+#   ProxyRequests Off
+#   AllowEncodedSlashes NoDecode
+#   ProxyPass / http://localhost:3000/ nocanon
+#   ProxyPassReverse / http://localhost:3000/ nocanon
+# </VirtualHost>
+
+# This is if you're using sockets
+# <VirtualHost *:443>
+#   SSLEngine on
+#   ServerName git.example.com
+#   DocumentRoot /var/www/html
+#   <Location />
+#     ProxyPass unix:/run/gitea/gitea.socket|http://127.0.0.1/
+#     ProxyPassReverse unix:/run/gitea/gitea.socket|http://127.0.0.1/
+#   </Location>
+# </VirtualHost>
+
+# Examples of using /git
+
+#<Location /git>
+#  Require all granted
+#  ProxyPass http://localhost:3000
+#  ProxyPassReverse http://localhost:3000
+#</Location>
+
+#<Location /git>
+#  Require all granted
+#  ProxyPass https://some.git.com:3000
+#  ProxyPassReverse https://some.git.com:3000
+#</Location>

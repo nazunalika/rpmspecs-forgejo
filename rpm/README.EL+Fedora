@@ -1,0 +1,43 @@
+To setup Gitea, perform the following:
+
+* Create a user and database for gitea (while granting rights)
+* Start gitea.service
+* Change the configuration under [server] in /etc/gitea/conf/app.ini and then
+  call http://server:port/ (default is http://localhost:3000) to finish setup.
+
+  Alternatively, you can call http://server:port/ and setup from there and
+  change /etc/gitea/conf/app.ini afterwards.
+
+You can create an admin user on the console by running:
+
+su - git
+gitea --name admin --password somePassword --email some@email.com --admin
+
+---
+
+If you want to access gitea through httpd (apache), install the gitea-httpd
+subpackage, and change /etc/httpd/conf.d/gitea.conf. There are comments in that
+file that give you examples of how to set it up, either as a vhost or as a
+subdirectory like /git
+
+This will require you to also change the [server] section, in particular,
+ROOT_URL to match what you are expecting.
+
+---
+
+I would highly recommend that you setup the webserver to run on a socket rather
+than a simple web server. That way, when you setup httpd or nginx, you can run
+the reverse proxy into the socket. For example.
+
+<Location />
+  ProxyPass unix:/run/gitea/gitea.socket|http://127.0.0.1/
+  ProxyPassReverse unix:/run/gitea/gitea.socket|http://127.0.0.1/
+</Location>
+
+---
+
+If you plan on using SSH on the native 22 port, you do *not* have to disable
+your default sshd service. Instead, you can add the following line to
+/etc/ssh/sshd_config or /etc/ssh/sshd_config.d/99-gitea.conf (EL9 and Fedora):
+
+AcceptEnv GIT_PROTOCOL

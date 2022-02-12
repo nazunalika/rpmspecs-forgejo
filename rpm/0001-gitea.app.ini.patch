@@ -1,0 +1,33 @@
+diff -Naurp git-old/custom/conf/app.example.ini git/custom/conf/app.example.ini
+--- git-old/custom/conf/app.example.ini 2022-02-06 06:23:18.000000000 -0700
++++ git/custom/conf/app.example.ini     2022-02-11 20:59:19.897244829 -0700
+@@ -188,10 +188,10 @@ RUN_MODE = ; prod
+ ;;
+ ;; Root directory containing templates and static files.
+ ;; default is the path where Gitea is executed
+-;STATIC_ROOT_PATH =
++STATIC_ROOT_PATH = /usr/share/gitea
+ ;;
+ ;; Default path for App data
+-;APP_DATA_PATH = data
++APP_DATA_PATH = /var/lib/gitea/data
+ ;;
+ ;; Enable gzip compression for runtime-generated content, static resources excluded
+ ;ENABLE_GZIP = false
+@@ -446,14 +446,14 @@ APP_ID = ; e.g. http://localhost:3000/
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; Root path for the log files - defaults to %(GITEA_WORK_DIR)/log
+-;ROOT_PATH =
++ROOT_PATH = /var/log/gitea
+ ;;
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; Main Logger
+ ;;
+ ;; Either "console", "file", "conn", "smtp" or "database", default is "console"
+ ;; Use comma to separate multiple modes, e.g. "console, file"
+-MODE = console
++MODE = console, file
+ ;;
+ ;; Either "Trace", "Debug", "Info", "Warn", "Error", "Critical", default is "Trace"
+ LEVEL = Info
