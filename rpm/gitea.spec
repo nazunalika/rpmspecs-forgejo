@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 16
-%global micro_version 1
+%global micro_version 2
 
 # Default support for sqlite and pam (not provided by upstream by default)
 %global gitea_tags "sqlite sqlite_unlock_notify pam"
@@ -8,7 +8,7 @@
 %define debug_package %{nil}
 
 Name:		gitea
-Version:	1.16.1
+Version:	%{major_version}.%{minor_version}.%{micro_version}
 Release:	1%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
@@ -105,9 +105,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/gitea \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/gitea/queues \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/gitea/repositories \
   $RPM_BUILD_ROOT%{_localstatedir}/log/gitea \
-  $RPM_BUILD_ROOT%{_sysconfdir}/gitea/conf \
-  $RPM_BUILD_ROOT%{_sysconfdir}/gitea/https \
-  $RPM_BUILD_ROOT%{_sysconfdir}/gitea/mailer
+  $RPM_BUILD_ROOT%{_sysconfdir}/gitea/{conf,https,mailer}
 
 cp -r options $RPM_BUILD_ROOT%{_datadir}/gitea/
 cp -r public $RPM_BUILD_ROOT%{_datadir}/gitea/
@@ -163,5 +161,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Fri Feb 11 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.1-1
+* Thu Feb 24 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.2-1
+- Update to 1.16.2
+
+* Fri Feb 11 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.1-2
 - Initial release of 1.16.1 for Fedora and Enterprise Linux
+- Clean up spec
