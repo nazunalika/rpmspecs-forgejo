@@ -19,6 +19,8 @@ Source2:	gitea.service
 Source3:  gitea.firewalld
 Source4:  README.EL+Fedora
 Source5:  gitea.httpd
+Source6:  gitea.nginx
+Source7:  gitea.caddy
 
 Patch1:		0001-gitea.app.ini.patch
 
@@ -29,7 +31,7 @@ BuildRequires:	make
 BuildRequires:	nodejs-devel >= 16.0.0
 BuildRequires:	npm
 BuildRequires:	go-srpm-macros
-BuildRequires:  pam-devel
+BuildRequires:	pam-devel
 Requires:	git
 Requires:	systemd
 Requires: openssh-server
@@ -51,17 +53,33 @@ written in Go and published under the MIT license.
 
 %package httpd
 Summary:  Apache (httpd) configuration for %{name}
+Requires: gitea
 Requires: httpd
 
 %description httpd
 This subpackage contains Apache configuration files that can be used to reverse
 proxy for Gitea.
 
-#%package nginx
-#%description nginx
+%package nginx
+Summary: nginx configuration for %{name}
+Requires: gitea
+Requires: nginx
+
+%description nginx
+This subpackage contains an nginx configuration file that can be used to reverse
+proxy for Gitea.
+
+%package caddy
+Summary: caddy configuration for %{name}
+Requires: gitea
+Requires: caddy >= 2.0.0
+
+%description caddy
+This subpackage contains an caddy configuration file that can be used to reverse
+proxy for Gitea.
 
 %package docs
-Summary:  Documentation for %{name}
+Summary: Documentation for %{name}
 
 %description docs
 This subpackage contains the Gitea documentation from https://docs.gitea.io
@@ -87,6 +105,8 @@ install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT/%{_unitdir}/gitea.service
 install -D -m 644 custom/conf/app.example.ini $RPM_BUILD_ROOT%{_sysconfdir}/gitea/conf/app.ini
 install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_prefix}/lib/firewalld/services/%{name}.xml
 install -D -m 644 %{SOURCE5} $RPM_BUILD_ROOT%{_sysconfdir}/httpd/conf.d/%{name}.conf
+install -D -m 644 %{SOURCE6} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/%{name}.conf
+install -D -m 644 %{SOURCE7} $RPM_BUILD_ROOT%{_sysconfdir}/caddy/Caddyfile.d/%{name}.caddyfile
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gitea \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/gitea \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/gitea/data \
@@ -157,12 +177,20 @@ systemd-tmpfiles --create %{name}.conf || :
 %files httpd
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
 
+%files nginx
+%config(noreplace) %{_sysconfdir}/nginx/conf.d/%{name}.conf
+
+%files caddy
+%config(noreplace) %{_sysconfdir}/caddy/Caddyfile.d/%{name}.caddyfile
+
 %files docs
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Thu Mar 03 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.3-1
+* Thu Mar 03 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.3-2
 - Update to 1.16.3
+- Add nginx configuration
+- Add caddy configuration
 
 * Thu Feb 24 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.2-1
 - Update to 1.16.2

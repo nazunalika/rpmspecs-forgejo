@@ -1,0 +1,11 @@
+#git.example.com {
+#    reverse_proxy localhost:3000
+#}
+
+# Using sub-path
+#git.example.com {
+#    route /git/* {
+#        uri strip_prefix /git
+#        reverse_proxy localhost:3000
+#    }
+#}

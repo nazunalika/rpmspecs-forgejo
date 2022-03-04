@@ -1,0 +1,40 @@
+# Single node, single domain
+#server {
+#    listen 80;
+#    server_name git.example.com;
+#
+#    location /_/static/assets {
+#        alias /path/to/gitea/public;
+#    }
+#
+#    location / {
+#        proxy_pass http://localhost:3000;
+#    }
+#}
+
+# Two nodes, two domains
+#server {
+#    listen 80;
+#    server_name git.example.com;
+#
+#    location / {
+#        proxy_pass http://localhost:3000;
+#    }
+#}
+
+# static content delivery server
+#server {
+#    listen 80;
+#    server_name cdn.example.com;
+#
+#    location /gitea {
+#        alias /path/to/gitea/public;
+#    }
+#
+#    location / {
+#        return 404;
+#    }
+#}
+
+# If you need to resolve a 413 error, add "client_max_body_size 16M;" to your
+# location block
