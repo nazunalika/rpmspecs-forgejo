@@ -9,7 +9,7 @@
 
 Name:		gitea
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
