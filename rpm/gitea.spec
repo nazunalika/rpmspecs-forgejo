@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 16
-%global micro_version 2
+%global micro_version 3
 
 # Default support for sqlite and pam (not provided by upstream by default)
 %global gitea_tags "sqlite sqlite_unlock_notify pam"
@@ -161,6 +161,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Thu Mar 03 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.3-1
+- Update to 1.16.3
+
 * Thu Feb 24 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.2-1
 - Update to 1.16.2
 
