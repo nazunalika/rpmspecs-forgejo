@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 16
-%global micro_version 3
+%global micro_version 4
 
 # Default support for sqlite and pam (not provided by upstream by default)
 %global gitea_tags "sqlite sqlite_unlock_notify pam"
@@ -9,7 +9,7 @@
 
 Name:		gitea
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	2%{?dist}
+Release:	1%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
@@ -187,6 +187,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Mon Mar 14 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.4-1
+- Update to 1.16.4
+
 * Thu Mar 03 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.3-2
 - Update to 1.16.3
 - Add nginx configuration
