@@ -88,10 +88,7 @@ This subpackage contains the Gitea documentation from https://docs.gitea.io
 %prep
 %setup -q -c
 %patch1 -p1
-
-%if 0%{?fedora} <= 35 || 0%{?rhel} == 8
 %patch2 -p1
-%endif
 
 install -m 0644 %{SOURCE4} .
 for file in $(find . -type f - name "*.css"); do
