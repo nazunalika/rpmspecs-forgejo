@@ -9,7 +9,7 @@
 
 Name:		gitea
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
@@ -23,6 +23,7 @@ Source6:  gitea.nginx
 Source7:  gitea.caddy
 
 Patch1:		0001-gitea.app.ini.patch
+Patch2:		0001-makefile.patch
 
 BuildRequires:	systemd
 BuildRequires:	go >= 1.16.0
@@ -87,6 +88,11 @@ This subpackage contains the Gitea documentation from https://docs.gitea.io
 %prep
 %setup -q -c
 %patch1 -p1
+
+%if 0%{?fedora} <= 35 || 0%{?rhel} == 8
+%patch2 -p1
+%endif
+
 install -m 0644 %{SOURCE4} .
 for file in $(find . -type f - name "*.css"); do
   chmod -x ${file}
@@ -187,8 +193,10 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Wed Mar 23 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.5-1
+* Wed Mar 23 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.5-2
 - Update to 1.16.5
+- Patch minimum go version to 1.16 temporarily for RHEL
+  and Fedora 35
 
 * Mon Mar 14 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.4-1
 - Update to 1.16.4
