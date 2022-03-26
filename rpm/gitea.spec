@@ -9,7 +9,7 @@
 
 Name:		gitea
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
@@ -156,6 +156,9 @@ EOF
 %systemd_post %{name}.service
 systemd-tmpfiles --create %{name}.conf || :
 
+%postun
+%systemd_postun_with_restart %{name}.service
+
 %files
 %doc README.EL+Fedora README.md custom/conf/app.example.ini
 %license LICENSE
@@ -190,6 +193,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Fri Mar 25 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.5-3
+- Add post uninstall section
+
 * Wed Mar 23 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.5-2
 - Update to 1.16.5
 - Patch minimum go version to 1.16 temporarily for RHEL
