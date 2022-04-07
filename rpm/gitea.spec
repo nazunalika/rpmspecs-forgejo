@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 16
-%global micro_version 5
+%global micro_version 6
 
 # Default support for sqlite and pam (not provided by upstream by default)
 %global gitea_tags "sqlite sqlite_unlock_notify pam"
@@ -9,7 +9,7 @@
 
 Name:		gitea
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	3%{?dist}
+Release:	1%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
@@ -23,7 +23,6 @@ Source6:  gitea.nginx
 Source7:  gitea.caddy
 
 Patch1:		0001-gitea.app.ini.patch
-Patch2:		0001-makefile.patch
 
 BuildRequires:	systemd
 BuildRequires:	go >= 1.16.0
@@ -88,7 +87,6 @@ This subpackage contains the Gitea documentation from https://docs.gitea.io
 %prep
 %setup -q -c
 %patch1 -p1
-%patch2 -p1
 
 install -m 0644 %{SOURCE4} .
 for file in $(find . -type f - name "*.css"); do
@@ -193,6 +191,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Thu Apr 07 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.6-1
+- Update to 1.16.6
+
 * Fri Mar 25 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.5-3
 - Add post uninstall section
 
