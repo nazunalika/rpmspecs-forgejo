@@ -1,6 +1,6 @@
 %global major_version 1
-%global minor_version 16
-%global micro_version 9
+%global minor_version 17
+%global micro_version 0
 
 # Default support for sqlite and pam (not provided by upstream by default)
 %global gitea_tags "sqlite sqlite_unlock_notify pam"
@@ -25,7 +25,7 @@ Source7:  gitea.caddy
 Patch1:		0001-gitea.app.ini.patch
 
 BuildRequires:	systemd
-BuildRequires:	go >= 1.16.0
+BuildRequires:	go >= 1.17.0
 BuildRequires:	git
 BuildRequires:	make
 BuildRequires:	nodejs-devel >= 16.0.0
@@ -191,6 +191,9 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Sat Jul 30 2022 Louis Abel <tucklesepk@gmail.com> - 1.17.0-1
+- Update to 1.17.0
+
 * Tue Jul 12 2022 Louis Abel <tucklesepk@gmail.com> - 1.16.9-1
 - Update to 1.16.9
 
