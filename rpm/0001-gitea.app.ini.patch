@@ -1,7 +1,8 @@
-diff -Naurp git-old/custom/conf/app.example.ini git/custom/conf/app.example.ini
---- git-old/custom/conf/app.example.ini 2022-02-06 06:23:18.000000000 -0700
-+++ git/custom/conf/app.example.ini     2022-02-11 20:59:19.897244829 -0700
-@@ -188,10 +188,10 @@ RUN_MODE = ; prod
+diff --git a/custom/conf/app.example.ini b/custom/conf/app.example.ini
+index ecd7febeb..b0d6fc708 100644
+--- a/custom/conf/app.example.ini
++++ b/custom/conf/app.example.ini
+@@ -221,10 +221,10 @@ RUN_MODE = ; prod
  ;;
  ;; Root directory containing templates and static files.
  ;; default is the path where Gitea is executed
@@ -14,7 +15,7 @@ diff -Naurp git-old/custom/conf/app.example.ini git/custom/conf/app.example.ini
  ;;
  ;; Enable gzip compression for runtime-generated content, static resources excluded
  ;ENABLE_GZIP = false
-@@ -446,14 +446,14 @@ APP_ID = ; e.g. http://localhost:3000/
+@@ -495,14 +495,14 @@ APP_ID = ; e.g. http://localhost:3000/
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Root path for the log files - defaults to %(GITEA_WORK_DIR)/log
@@ -29,5 +30,5 @@ diff -Naurp git-old/custom/conf/app.example.ini git/custom/conf/app.example.ini
 -MODE = console
 +MODE = console, file
  ;;
- ;; Either "Trace", "Debug", "Info", "Warn", "Error", "Critical", default is "Trace"
+ ;; Either "Trace", "Debug", "Info", "Warn", "Error", "Critical" or "None", default is "Info"
  LEVEL = Info
