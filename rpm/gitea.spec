@@ -13,8 +13,8 @@ Release:	1%{?dist}
 Summary:	A painless self-hosted Git service
 License:	MIT
 URL:		https://gitea.io
-Source0:	https://github.com/go-gitea/gitea/releases/download/v%{version}/gitea-src-%{version}.tar.gz
-Source1:	https://github.com/go-gitea/gitea/releases/download/v%{version}/gitea-docs-%{version}.tar.gz
+Source0:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-src-%{version}.tar.gz
+Source1:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-docs-%{version}.tar.gz
 Source2:	gitea.service
 Source3:  gitea.firewalld
 Source4:  README.EL+Fedora
@@ -85,7 +85,7 @@ Summary: Documentation for %{name}
 This subpackage contains the Gitea documentation from https://docs.gitea.io
 
 %prep
-%setup -q -c
+%setup -q -n %{name}-src-%{version}
 %patch1 -p1
 
 install -m 0644 %{SOURCE4} .
