@@ -1,5 +1,5 @@
 diff --git a/custom/conf/app.example.ini b/custom/conf/app.example.ini
-index ecd7febeb..b0d6fc708 100644
+index ecd7feb..b0d6fc7 100644
 --- a/custom/conf/app.example.ini
 +++ b/custom/conf/app.example.ini
 @@ -221,10 +221,10 @@ RUN_MODE = ; prod
