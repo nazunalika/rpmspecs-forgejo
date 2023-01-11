@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <service>
-  <short>Gitea</short>
-  <description>A painless self-hosted Git service.</description>
+  <short>Forgejo</short>
+  <description>Self-hosted lightweight software forge.</description>
   <port protocol="tcp" port="3000"/>
 </service>

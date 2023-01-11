@@ -30,8 +30,8 @@
 #   ServerName git.example.com
 #   DocumentRoot /var/www/html
 #   <Location />
-#     ProxyPass unix:/run/gitea/gitea.socket|http://127.0.0.1/
-#     ProxyPassReverse unix:/run/gitea/gitea.socket|http://127.0.0.1/
+#     ProxyPass unix:/run/forgejo/forgejo.socket|http://127.0.0.1/
+#     ProxyPassReverse unix:/run/forgejo/forgejo.socket|http://127.0.0.1/
 #   </Location>
 # </VirtualHost>
 

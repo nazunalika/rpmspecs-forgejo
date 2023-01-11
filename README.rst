@@ -1,7 +1,7 @@
-rpmspecs-gitea
-^^^^^^^^^^^^^^
+rpmspecs-forgejo
+^^^^^^^^^^^^^^^^
 
-This is the RPM spec files that I have created for gitea. I am not affiliated with the gitea project and only provide this as a service.
+This is the RPM spec files that I have created for forgejo. I am not affiliated with the forgejo project and only provide this as a service.
 
 .. contents::
 

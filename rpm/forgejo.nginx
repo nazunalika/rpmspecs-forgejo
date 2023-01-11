@@ -4,7 +4,7 @@
 #    server_name git.example.com;
 #
 #    location /_/static/assets {
-#        alias /path/to/gitea/public;
+#        alias /path/to/forgejo/public;
 #    }
 #
 #    location / {
@@ -27,8 +27,8 @@
 #    listen 80;
 #    server_name cdn.example.com;
 #
-#    location /gitea {
-#        alias /path/to/gitea/public;
+#    location /forgejo {
+#        alias /path/to/forgejo/public;
 #    }
 #
 #    location / {

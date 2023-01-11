@@ -1,11 +1,11 @@
-# Gitea Service File (part of the gitea rpm package)
+# Forgejo Service File (part of the forgejo rpm package)
 #
 # If you plan on using a database or using different settings from the defaults
 # please copy this file to /etc/systemd/system/ or setup a directory structure
-# like /etc/systemd/system/gitea.service.d/ with your override files.
+# like /etc/systemd/system/forgejo.service.d/ with your override files.
 
 [Unit]
-Description=Gitea (Git with a cup of tea)
+Description=Forgejo (Self-hosted lightweight software forge)
 After=syslog.target
 After=network.target
 After=mysqld.service
@@ -22,10 +22,10 @@ RestartSec=2s
 Type=simple
 User=git
 Group=git
-WorkingDirectory=/var/lib/gitea/
-ExecStart=/usr/bin/gitea web --config /etc/gitea/conf/app.ini
+WorkingDirectory=/var/lib/forgejo/
+ExecStart=/usr/bin/forgejo web --config /etc/forgejo/conf/app.ini
 Restart=always
-Environment=USER=git HOME=/usr/share/gitea GITEA_WORK_DIR=/var/lib/gitea
+Environment=USER=git HOME=/usr/share/forgejo GITEA_WORK_DIR=/var/lib/forgejo
 
 # If you plan on binding Gitea to a port lower than 1024 (not recommended),
 # uncomment the below.
