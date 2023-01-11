@@ -3,9 +3,6 @@
 %global micro_version 0
 %global attachment_uuid c829784c-3b85-4996-9dc6-09e12e40a93a
 
-# Default support for sqlite and pam (not provided by upstream by default)
-%global forgejo_tags "sqlite sqlite_unlock_notify pam"
-
 %define debug_package %{nil}
 
 Name:		forgejo
@@ -101,11 +98,12 @@ for file in $(find . -type f -name "*.css"); do
 done
 
 %build
-export TAGS="%{forgejo_tags}"
+# Default support for sqlite and pam (not provided by upstream by default)
+export TAGS="sqlite sqlite_unlock_notify pam"
 export LDFLAGS="-s -w -X \"main.Version=%{version}\" -X \"code.gitea.io/gitea/modules/setting.CustomPath=/etc/forgejo\" -X \"code.gitea.io/gitea/modules/setting.AppWorkPath=/var/lib/forgejo\""
 
 # Probably not needed, but just in case I guess.
-TAGS="%{forgejo_tags}" LDFLAGS="${LDFLAGS}" make build
+TAGS="${TAGS}" LDFLAGS="${LDFLAGS}" make build
 
 %install
 # The binary comes out as "gitea" for now
