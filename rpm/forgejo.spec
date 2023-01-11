@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 18
-%global micro_version 0-1
+%global micro_version 0
 %global attachment_uuid c829784c-3b85-4996-9dc6-09e12e40a93a
 
 # Default support for sqlite and pam (not provided by upstream by default)
@@ -92,7 +92,7 @@ proxy for Gitea.
 #This subpackage contains the Gitea documentation from https://docs.gitea.io
 
 %prep
-%setup -q -n %{name}-src-%{version}
+%setup -q -n %{name}-src-%{version}-1
 %patch1 -p1
 
 install -m 0644 %{SOURCE4} .
@@ -199,5 +199,5 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1-1
+* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1
 - Init forgejo package
