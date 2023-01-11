@@ -191,7 +191,7 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Wed Jan 11 2022 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1
+* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1
 - Update to 1.18.0
 
 * Sat Oct 15 2022 Louis Abel <tucklesepk@gmail.com> - 1.17.3-1
