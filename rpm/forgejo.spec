@@ -105,7 +105,7 @@ export TAGS="%{forgejo_tags}"
 export LDFLAGS="-s -w -X \"main.Version=%{version}\" -X \"code.gitea.io/gitea/modules/setting.CustomPath=/etc/forgejo\" -X \"code.gitea.io/gitea/modules/setting.AppWorkPath=/var/lib/forgejo\""
 
 # Probably not needed, but just in case I guess.
-TAGS="${TAGS}" LDFLAGS="${LDFLAGS}" make build
+TAGS="%{forgejo_tags}" LDFLAGS="${LDFLAGS}" make build
 
 %install
 # The binary comes out as "gitea" for now
