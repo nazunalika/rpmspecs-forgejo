@@ -1,13 +1,13 @@
 %global major_version 1
 %global minor_version 18
-%global micro_version 0
+%global micro_version 1
 %global attachment_uuid c829784c-3b85-4996-9dc6-09e12e40a93a
 
 %define debug_package %{nil}
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	1%{?dist}
+Release:	0%{?dist}
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
@@ -89,7 +89,7 @@ proxy for Gitea.
 #This subpackage contains the Gitea documentation from https://docs.gitea.io
 
 %prep
-%setup -q -n %{name}-src-%{version}-1
+%setup -q -n %{name}-src-%{version}-0
 %patch1 -p1
 
 install -m 0644 %{SOURCE4} .
@@ -197,5 +197,8 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Wed Jan 18 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.1-0
+- Update to 1.18.1
+
 * Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1
 - Init forgejo package
