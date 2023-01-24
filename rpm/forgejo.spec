@@ -2,7 +2,7 @@
 %global minor_version 18
 %global micro_version 2
 %global append_tag 1
-%global attachment_uuid 5d59ec04-9f29-4b32-a1ef-bec5c3132e26
+%global attachment_uuid 44ff6fcb-1515-4bba-85bf-3d3795ced2f7
 
 %define debug_package %{nil}
 
