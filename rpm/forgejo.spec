@@ -1,8 +1,8 @@
 %global major_version 1
 %global minor_version 18
-%global micro_version 2
-%global append_tag 1
-%global attachment_uuid 44ff6fcb-1515-4bba-85bf-3d3795ced2f7
+%global micro_version 3
+%global append_tag 0
+%global attachment_uuid af34fbfc-d651-41b1-aaff-2b9cc7134051
 
 %define debug_package %{nil}
 
@@ -198,6 +198,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Fri Feb 03 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.3-0
+- Update to 1.18.3
+
 * Sun Jan 22 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.2-1
 - Security update
 
