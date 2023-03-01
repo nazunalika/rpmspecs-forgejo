@@ -1,8 +1,8 @@
 %global major_version 1
 %global minor_version 18
-%global micro_version 3
+%global micro_version 5
 %global append_tag 0
-%global attachment_uuid af34fbfc-d651-41b1-aaff-2b9cc7134051
+%global attachment_uuid bb93c0c9-98c4-465c-bcff-e07ac3ee72a3
 
 %define debug_package %{nil}
 
@@ -198,17 +198,5 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
-* Fri Feb 03 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.3-0
-- Update to 1.18.3
-
-* Sun Jan 22 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.2-1
-- Security update
-
-* Fri Jan 20 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.2-0
-- Update to 1.18.2
-
-* Wed Jan 18 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.1-0
-- Update to 1.18.1
-
-* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.0-1
-- Init forgejo package
+* Tue Feb 28 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.5-0
+- Update to 1.18.5
