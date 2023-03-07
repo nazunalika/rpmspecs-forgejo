@@ -27,7 +27,7 @@ ExecStart=/usr/bin/forgejo web --config /etc/forgejo/conf/app.ini
 Restart=always
 Environment=USER=git HOME=/usr/share/forgejo GITEA_WORK_DIR=/var/lib/forgejo
 
-# If you plan on binding Gitea to a port lower than 1024 (not recommended),
+# If you plan on binding Forgejo to a port lower than 1024 (not recommended),
 # uncomment the below.
 #CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 #AmbientCapabilities=CAP_NET_BIND_SERVICE

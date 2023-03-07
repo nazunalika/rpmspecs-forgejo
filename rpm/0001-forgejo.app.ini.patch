@@ -7,11 +7,11 @@ index ecd7feb..b0d6fc7 100644
  ;; Root directory containing templates and static files.
  ;; default is the path where Gitea is executed
 -;STATIC_ROOT_PATH =
-+STATIC_ROOT_PATH = /usr/share/gitea
++STATIC_ROOT_PATH = /usr/share/forgejo
  ;;
  ;; Default path for App data
 -;APP_DATA_PATH = data
-+APP_DATA_PATH = /var/lib/gitea/data
++APP_DATA_PATH = /var/lib/forgejo/data
  ;;
  ;; Enable gzip compression for runtime-generated content, static resources excluded
  ;ENABLE_GZIP = false
@@ -20,7 +20,7 @@ index ecd7feb..b0d6fc7 100644
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Root path for the log files - defaults to %(GITEA_WORK_DIR)/log
 -;ROOT_PATH =
-+ROOT_PATH = /var/log/gitea
++ROOT_PATH = /var/log/forgejo
  ;;
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Main Logger

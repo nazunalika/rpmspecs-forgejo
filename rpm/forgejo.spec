@@ -8,7 +8,7 @@
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	%{append_tag}%{?dist}.0.1
+Release:	%{append_tag}%{?dist}.0.2
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
