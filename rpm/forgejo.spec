@@ -8,7 +8,7 @@
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	%{append_tag}%{?dist}
+Release:	%{append_tag}%{?dist}.0.1
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
@@ -35,7 +35,7 @@ BuildRequires:	pam-devel
 Requires:	git
 Requires:	systemd
 Requires: openssh-server
-Requires(pre):	shadow
+Requires(pre):	shadow-utils
 Requires(post):	systemd
 Requires(postun):	systemd
 Requires(preun):	systemd
@@ -198,5 +198,8 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Tue Mar 07 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.5-0.0.1
+- Fix requires
+
 * Tue Feb 28 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.5-0
 - Update to 1.18.5
