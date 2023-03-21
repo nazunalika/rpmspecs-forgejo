@@ -1,14 +1,14 @@
 %global major_version 1
-%global minor_version 18
-%global micro_version 5
-%global append_tag 0
-%global attachment_uuid bb93c0c9-98c4-465c-bcff-e07ac3ee72a3
+%global minor_version 19
+%global micro_version 0
+%global append_tag 2
+%global attachment_uuid 2bf497db-fa91-4260-9c98-5c791b6b397c
 
 %define debug_package %{nil}
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	%{append_tag}%{?dist}.0.2
+Release:	%{append_tag}%{?dist}
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
@@ -198,6 +198,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Tue Mar 21 2023 Louis Abel <tucklesepk@gmail.com> - 1.19.0-2
+- Updates to 1.19.0-2
+
 * Tue Mar 07 2023 Louis Abel <tucklesepk@gmail.com> - 1.18.5-0.0.1
 - Fix requires
 

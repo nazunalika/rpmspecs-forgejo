@@ -1,21 +1,21 @@
 diff --git a/custom/conf/app.example.ini b/custom/conf/app.example.ini
-index ecd7feb..b0d6fc7 100644
+index 5265614..f4d74bb 100644
 --- a/custom/conf/app.example.ini
 +++ b/custom/conf/app.example.ini
-@@ -221,10 +221,10 @@ RUN_MODE = ; prod
+@@ -275,10 +275,10 @@ RUN_MODE = ; prod
  ;;
  ;; Root directory containing templates and static files.
  ;; default is the path where Gitea is executed
--;STATIC_ROOT_PATH =
+-;STATIC_ROOT_PATH = ; Will default to the built-in value _`StaticRootPath`_
 +STATIC_ROOT_PATH = /usr/share/forgejo
  ;;
  ;; Default path for App data
--;APP_DATA_PATH = data
+-;APP_DATA_PATH = data ; relative paths will be made absolute with _`AppWorkPath`_
 +APP_DATA_PATH = /var/lib/forgejo/data
  ;;
  ;; Enable gzip compression for runtime-generated content, static resources excluded
  ;ENABLE_GZIP = false
-@@ -495,14 +495,14 @@ APP_ID = ; e.g. http://localhost:3000/
+@@ -545,14 +545,14 @@ ENABLE = true
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Root path for the log files - defaults to %(GITEA_WORK_DIR)/log
