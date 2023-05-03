@@ -138,7 +138,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/forgejo \
 cp -r options $RPM_BUILD_ROOT%{_datadir}/forgejo/
 cp -r public $RPM_BUILD_ROOT%{_datadir}/forgejo/
 cp -r templates $RPM_BUILD_ROOT%{_datadir}/forgejo/
-cp -r web_src/less $RPM_BUILD_ROOT%{_datadir}/forgejo/public
+#cp -r web_src/less $RPM_BUILD_ROOT%{_datadir}/forgejo/public
 #install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/docs.gitea.io/
 #tar -xvzf %{SOURCE1} -C $RPM_BUILD_ROOT%{_datadir}/%{name}/docs.gitea.io
 
