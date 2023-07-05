@@ -178,6 +178,7 @@ systemd-tmpfiles --create %{name}.conf || :
 %{_bindir}/forgejo
 %{_prefix}/lib/firewalld/services/%{name}.xml
 %{_tmpfilesdir}/%{name}.conf
+%{_sysusersdir}/%{name}.conf
 
 %defattr(0660,root,git,770)
 %dir %{_sysconfdir}/forgejo
