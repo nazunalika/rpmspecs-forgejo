@@ -1,8 +1,8 @@
 %global major_version 1
 %global minor_version 19
-%global micro_version 3
+%global micro_version 4
 %global append_tag 0
-%global attachment_uuid db29081a-5dd8-4257-ad57-fe50d22461c8
+%global attachment_uuid f31a8594-5cc1-4903-bc46-067e08e070f4
 
 %define debug_package %{nil}
 
@@ -21,6 +21,7 @@ Source4:  README.EL+Fedora
 Source5:  forgejo.httpd
 Source6:  forgejo.nginx
 Source7:  forgejo.caddy
+Source8:  forgejo.sysusers
 
 Patch1:		0001-forgejo.app.ini.patch
 
@@ -115,6 +116,7 @@ install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_prefix}/lib/firewalld/services/%{
 install -D -m 644 %{SOURCE5} $RPM_BUILD_ROOT%{_sysconfdir}/httpd/conf.d/%{name}.conf
 install -D -m 644 %{SOURCE6} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/%{name}.conf
 install -D -m 644 %{SOURCE7} $RPM_BUILD_ROOT%{_sysconfdir}/caddy/Caddyfile.d/%{name}.caddyfile
+install -D -m 644 %{SOURCE8} $RPM_BUILD_ROOT%{_sysusersdir}/%{name}.conf
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/forgejo \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/forgejo \
   $RPM_BUILD_ROOT%{_localstatedir}/lib/forgejo/data \
@@ -149,10 +151,14 @@ EOF
 
 %pre
 # Not official
+%if 0%{?fedora} || 0%{?rhel} >= 9
+%sysusers_create_compat %{SOURCE8}
+%else
 %{_sbindir}/groupadd -r git 2>/dev/null || :
 %{_sbindir}/useradd -r -g git \
   -s /sbin/nologin -d %{_datadir}/%{name} \
   -c 'Gitea' git 2>/dev/null || :
+%endif
 
 %preun
 %systemd_preun %{name}.service
@@ -198,6 +204,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Wed Jul 05 2023 Louis Abel <tucklesepk@gmail.com> - 1.19.4-0
+- Updates to 1.19.4-0
+
 * Wed May 03 2023 Louis Abel <tucklesepk@gmail.com> - 1.19.3-0
 - Updates to 1.19.3-0
 
