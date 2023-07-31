@@ -1,2 +1,3 @@
 #Type Name    ID GECOS                  Home directory
-u     git     -  "Gitea"                /usr/share/gitea
+g     git     -
+u     git     -  "Forgejo"              /usr/share/gitea

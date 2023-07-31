@@ -2,7 +2,7 @@ diff --git a/custom/conf/app.example.ini b/custom/conf/app.example.ini
 index 5265614..f4d74bb 100644
 --- a/custom/conf/app.example.ini
 +++ b/custom/conf/app.example.ini
-@@ -275,10 +275,10 @@ RUN_MODE = ; prod
+@@ -275,10 +275,10 @@ RUN_USER = ; git
  ;;
  ;; Root directory containing templates and static files.
  ;; default is the path where Gitea is executed
