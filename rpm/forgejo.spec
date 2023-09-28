@@ -1,7 +1,7 @@
 %global major_version 1
 %global minor_version 20
-%global micro_version 2
-%global append_tag 0
+%global micro_version 4
+%global append_tag 1
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
 
 %define debug_package %{nil}
@@ -12,8 +12,8 @@ Release:	%{append_tag}%{?dist}
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
-Source0:	https://codeberg.org/attachments/%{attachment_uuid}
-#Source0:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-src-%{version}.tar.gz
+#Source0:	https://codeberg.org/attachments/%{attachment_uuid}
+Source0:	https://codeberg.org/forgejo/forgejo/releases/download/v%{version}/%{name}-src-%{version}.tar.gz
 #Source1:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-docs-%{version}.tar.gz
 Source2:	forgejo.service
 Source3:  forgejo.firewalld
@@ -205,6 +205,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Thu Sep 28 2023 Louis Abel <tucklesepk@gmail.com> - 1.20.4-1
+- Update to 1.20.4-1
+
 * Sun Jul 30 2023 Louis Abel <tucklesepk@gmail.com> - 1.20.2-0
 - Update to 1.20.2-0
 
