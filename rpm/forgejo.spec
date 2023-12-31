@@ -2,6 +2,7 @@
 %global minor_version 21
 %global micro_version 3
 %global append_tag 0
+%global full_version %{major_version}.%{minor_version}.%{micro_version}-%{append_tag}
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
 
 %define debug_package %{nil}
@@ -13,7 +14,7 @@ Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
 #Source0:	https://codeberg.org/attachments/%{attachment_uuid}
-Source0:	https://codeberg.org/forgejo/forgejo/releases/download/v%{version}/%{name}-src-%{version}.tar.gz
+Source0:	https://codeberg.org/forgejo/forgejo/releases/download/v%{full_version}/%{name}-src-%{full_version}.tar.gz
 #Source1:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-docs-%{version}.tar.gz
 Source2:	forgejo.service
 Source3:  forgejo.firewalld
