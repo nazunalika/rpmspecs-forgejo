@@ -1,3 +1,3 @@
-#Type Name    ID GECOS                  Home directory
+#Type Name    ID GECOS                  Home directory     Shell
 g     git     -
-u     git     -  "Forgejo"              /usr/share/forgejo
+u     git     -  "Forgejo"              /usr/share/forgejo /bin/bash

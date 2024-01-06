@@ -9,7 +9,7 @@
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	%{append_tag}%{?dist}
+Release:	%{append_tag}%{?dist}.0.1
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
@@ -157,8 +157,8 @@ EOF
 %else
 %{_sbindir}/groupadd -r git 2>/dev/null || :
 %{_sbindir}/useradd -r -g git \
-  -s /sbin/nologin -d %{_datadir}/%{name} \
-  -c 'Gitea' git 2>/dev/null || :
+  -s /bin/bash -d %{_datadir}/%{name} \
+  -c 'Forgejo' git 2>/dev/null || :
 %endif
 
 %preun
@@ -206,6 +206,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Sat Jan 06 2024 Louis Abel <tucklesepk@gmail.com> - 1.21.3-0.0.1
+- Set git user to /bin/bash
+
 * Sat Dec 30 2023 Louis Abel <tucklesepk@gmail.com> - 1.21.3-0
 - Update to 1.21.3-0
 
