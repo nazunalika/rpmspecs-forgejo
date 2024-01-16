@@ -1,6 +1,6 @@
 %global major_version 1
 %global minor_version 21
-%global micro_version 3
+%global micro_version 4
 %global append_tag 0
 %global full_version %{major_version}.%{minor_version}.%{micro_version}-%{append_tag}
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
@@ -9,7 +9,7 @@
 
 Name:		forgejo
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	%{append_tag}%{?dist}.0.1
+Release:	%{append_tag}%{?dist}
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
@@ -206,6 +206,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Tue Jan 16 2024 Louis Abel <tucklesepk@gmail.com> - 1.21.4-0
+- Update to 1.21.4-0
+
 * Sat Jan 06 2024 Louis Abel <tucklesepk@gmail.com> - 1.21.3-0.0.1
 - Set git user to /bin/bash
 
