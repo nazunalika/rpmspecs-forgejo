@@ -1,23 +1,24 @@
-diff --git a/custom/conf/app.example.ini b/custom/conf/app.example.ini
-index 97531aeb3..cd96cf625 100644
---- a/custom/conf/app.example.ini
-+++ b/custom/conf/app.example.ini
-@@ -279,9 +279,11 @@ RUN_USER = ; git
+diff -Naurp forgejo/custom/conf/app.example.ini forgejo-new/custom/conf/app.example.ini
+--- forgejo/custom/conf/app.example.ini 2024-04-26 21:49:54.000000000 -0700
++++ forgejo-new/custom/conf/app.example.ini     2024-04-28 15:09:26.192685348 -0700
+@@ -279,10 +279,10 @@ RUN_USER = ; git
+ ;;
  ;; Root directory containing templates and static files.
  ;; default is the path where Gitea is executed
- ;STATIC_ROOT_PATH = ; Will default to the built-in value _`StaticRootPath`_
+-;STATIC_ROOT_PATH = ; Will default to the built-in value _`StaticRootPath`_
 +STATIC_ROOT_PATH = /usr/share/forgejo
  ;;
  ;; Default path for App data
- ;APP_DATA_PATH = data ; relative paths will be made absolute with _`AppWorkPath`_
+-;APP_DATA_PATH = data ; relative paths will be made absolute with _`AppWorkPath`_
 +APP_DATA_PATH = /var/lib/forgejo/data
  ;;
  ;; Enable gzip compression for runtime-generated content, static resources excluded
  ;ENABLE_GZIP = false
-@@ -561,13 +563,14 @@ ENABLE = true
+@@ -569,14 +569,14 @@ ENABLED = true
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Root path for the log files - defaults to %(GITEA_WORK_DIR)/log
- ;ROOT_PATH =
+-;ROOT_PATH =
 +ROOT_PATH = /var/log/forgejo
  ;;
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
