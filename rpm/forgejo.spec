@@ -1,6 +1,6 @@
-%global major_version 7
+%global major_version 8
 %global minor_version 0
-%global micro_version 2
+%global micro_version 1
 %global append_tag 1
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
 
@@ -26,7 +26,7 @@ Source8:  forgejo.sysusers
 Patch1:		0001-forgejo.app.ini.patch
 
 BuildRequires:	systemd
-BuildRequires:	go >= 1.17.0
+BuildRequires:	go >= 1.21.0
 BuildRequires:	git
 BuildRequires:	make
 BuildRequires:	nodejs-devel >= 16.0.0
@@ -205,6 +205,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Fri Aug 09 2024 Louis Abel <tucklesepk@gmail.com> - 8.0.1-1
+- Update to 8.0.1
+
 * Thu May 02 2024 Louis Abel <tucklesepk@gmail.com> - 7.0.2-1
 - Update to 7.0.2
 
