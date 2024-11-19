@@ -1,6 +1,6 @@
-%global major_version 8
+%global major_version 9
 %global minor_version 0
-%global micro_version 1
+%global micro_version 2
 %global append_tag 1
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
 
@@ -12,7 +12,6 @@ Release:	%{append_tag}%{?dist}
 Summary:	Self-hosted lightweight software forge
 License:	MIT
 URL:		https://forgejo.org
-#Source0:	https://codeberg.org/attachments/%{attachment_uuid}
 Source0:	https://codeberg.org/forgejo/forgejo/releases/download/v%{version}/%{name}-src-%{version}.tar.gz
 #Source1:	https://github.com/go-gitea/gitea/releases/download/v%{version}/%{name}-docs-%{version}.tar.gz
 Source2:	forgejo.service
@@ -205,6 +204,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Tue Nov 19 2024 Louis Abel <tucklesepk@gmail.com> - 9.0.2-1
+- Update to 9.0.2
+
 * Fri Aug 09 2024 Louis Abel <tucklesepk@gmail.com> - 8.0.1-1
 - Update to 8.0.1
 
