@@ -91,7 +91,7 @@ proxy for Gitea.
 
 %prep
 %setup -q -n %{name}-src-%{version}
-%patch1 -p1
+%autopatch -p1
 
 install -m 0644 %{SOURCE4} .
 for file in $(find . -type f -name "*.css"); do
