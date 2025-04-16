@@ -1,6 +1,6 @@
-%global major_version 8
+%global major_version 11
 %global minor_version 0
-%global micro_version 3
+%global micro_version 0
 %global append_tag 1
 %global attachment_uuid d7d1ee1b-c6c4-40ea-ad48-b8417fecb001
 
@@ -204,6 +204,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%{_datadir}/%{name}/docs.gitea.io
 
 %changelog
+* Wed Apr 16 2025 Louis Abel <tucklesepk@gmail.com> - 11.0.0-1
+- Update to 11.0.0
+
 * Tue Nov 19 2024 Louis Abel <tucklesepk@gmail.com> - 8.0.3-1
 - Update to 8.0.3
 
